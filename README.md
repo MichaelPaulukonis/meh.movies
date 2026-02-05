@@ -1,52 +1,80 @@
-# Movie Systems Design
+# meh.movies 🙄
 
-## Pre-requisites
+A Gen-Z-ified movie discovery app powered by Nuxt 3, SQLite, and Anthropic's Claude 3.5.
 
-* An IDE or text editor of your choice
-* [Sqlite3](http://www.sqlitetutorial.net/)
-* Environment: Choose either Python 3.x or TypeScript with Node.js (v18+). For Python, install necessary libraries as needed (e.g., sqlite3 (built-in), pandas, numpy, openai). For TypeScript, run npm init, install deps like sqlite3, @types/node, @openai/openai, and use ts-node or compile to JS for execution. Justify any additional choices (e.g., for embeddings or prompting chains) in your README.
+## 🚀 Features
 
-## Overview
+- **LLM-Enriched Data**: Movies are pre-processed with Claude to extract vibes, thematic keywords, and Gen-Z tags.
+- **Mood-Based Recommendations**: Tell the app your vibe, and it matches you with the perfect movie using Claude 3.5.
+- **Natural Language Discovery**: "Show me something chaotic but also healing."
+- **Dark Mode**: Because light mode is a crime.
+- **SSR & TypeScript**: Built with production standards in mind.
 
-This assessment is designed for a Senior AI Engineer role and should take approximately 2-3 hours to complete. It focuses on testing your problem-solving skills, coding proficiency (in either Python or TypeScript with Node.js), data handling, SQL querying, and expertise in integrating and leveraging large language models (LLMs) for AI applications, with a strong emphasis on prompt engineering, LLM output generation, and evaluation. You'll work with a provided SQLite database containing movie-related data. The emphasis is on using LLMs to enrich data, generate outputs, and build intelligent systems through effective prompting.
+## 🛠️ Setup
 
-## **The Databases**
+1. **Install Dependencies**:
+   \`\`\`bash
+   pnpm install
+   \`\`\`
 
-* The databases are provided as a SQLite3 database in `db/`.  It does not require any credentials to login.  You can run SQL queries directly against the database using:
+2. **Environment Variables**:
+   Create a \`.env\` file (based on \`.env.example\`):
+   \`\`\`env
+   ANTHROPIC_API_KEY=your_key_here
+   OPENAI_API_KEY=your_key_here
+   \`\`\`
 
-The movies table has the following columns:
+3. **Database Setup**:
+   The database schema is already applied if you've run the initialization. To manually add the enrichment table:
+   \`\`\`bash
+   sqlite3 db/movies.db < db/schema.sql
+   \`\`\`
 
-* movieid: Unique identifier for each movie.
-* title: Movie title.
-* imdbid: IMDb identifier.
-* overview: Brief description of the movie.
-* productioncompanies: Pipe-separated list of production companies.
-* releasedate: Release date of the movie.
-* budget: Production budget in USD.
-* revenue: Box office revenue in USD.
-* runtime: Movie runtime in minutes.
-* language: Primary language of the movie.
-* genres: Pipe-separated list of genres (e.g., "Action|Drama").
-* status: Release status (e.g., "Released").
+4. **Run Enrichment (Optional/Demo)**:
+   To enrich a few movies from the existing database:
+   \`\`\`bash
+   npm run enrich-v2
+   \`\`\`
 
-## Tasks
+5. **Start Development Server**:
+   \`\`\`bash
+   npm run dev
+   \`\`\`
+   The app will be available at **http://localhost:3010**.
 
-#### Data Preparation & data enrichment
+## 🧠 How Enrichment Works
 
-For a sample of 50-100 movies, Use prompts to generate additional 5 additional attributes for the provided movies data.
-Examples include:
+We use an "Offline Enrichment" pattern. Background scripts (\`src/enrich-db.ts\`) process movies in batches. 
+This keeps the runtime app fast and avoids unnecessary LLM latency for static movie data.
 
-* Sentiment analysis of movie overview (positive/negative/neutral).
-* Categorize budget and revenue into tiers (e.g., low/medium/high) via LLM reasoning.
-* Production Effectiveness Score using rating, budget, revenue
+**Attributes extracted:**
+1. **Thematic Keywords**: Deeper than just genres.
+2. **Vibe Tags**: The emotional "flavor" of the movie.
+3. **Gen-Z Tags**: Playful descriptors (e.g., "rent free", "slay").
+4. **Genre Blend Score**: How much of a hybrid is this film?
+5. **Watch-with-who**: Social context for the viewing.
+6. **Recommendation Chain**: "If you like X, you might like Y".
 
-#### Movie System Design
+## 🤖 Runtime LLM Usage
 
-Develop an LLM-integrated system for movie-related tasks (e.g., recommendations, rating predictions, or natural language querying)
+When a user selects a mood or types a query, the app:
+1. Sanitizes the input to prevent prompt injection.
+2. Fetches a subset of **enriched movie data**.
+3. Sends a **System Prompt** + **User Mood** to Claude 3.5.
+4. Claude interprets the mood, matches it against the metadata, and returns a JSON list of matches with reasoning.
 
-* Design a system that leverages the prepared movie data and LLMs to generate outputs like personalized movie recommendations, user preference summaries, & comparative analyses (e.g., comparing movies based on budget, revenue, or runtime).
-* Demonstrate prompting techniques to generate specific structured outputs (e.g., provide 5-10 example ratings or movie details for prediction tasks). Test with varied inputs (e.g., "Recommend action movies with high revenue and positive sentiment" or "Summarize preferences for user based on their ratings and movie overviews").
+## 🛡️ Security & Prompt Safety
 
-## Submission
+We implement several layers of defense:
+- **System/User Separation**: Instructions are strictly kept in the System role.
+- **Sanitization**: User inputs are stripped of control characters and length-limited.
+- **Defensive Framing**: The LLM is instructed to stay within the "meh.movies" context and ignore instruction-change attempts.
+- **JSON Guardrails**: We enforce JSON output to ensure the API response is always parseable.
 
-We prefer you upload your project to GitHub and send us a link to your repo but you can also zip up the source and send it back to us.
+## 📂 Project Structure
+
+- \`server/api/\`: Nuxt server routes for data and LLM calls.
+- \`server/utils/\`: Shared utilities for DB and LLM logic.
+- \`pages/\`: Frontend views (Home, Search, Movie Detail).
+- \`src/\`: Offline enrichment and legacy scripts.
+- \`db/\`: SQLite database files and schemas.
