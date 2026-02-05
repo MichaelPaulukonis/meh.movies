@@ -2,6 +2,12 @@
 
 A Gen-Z-ified movie discovery app powered by Nuxt 3, SQLite, and Anthropic's Claude 3.5.
 
+I have it on good authority that my gen-z-ification is **#OMG-CRINGE-DAD**.
+
+<br />
+
+Uhhhh, that means it's cool, right?!?? 🤔 🧐 🤔
+
 ## 🚀 Features
 
 - **LLM-Enriched Data**: Movies are pre-processed with Claude to extract vibes, thematic keywords, and Gen-Z tags.
