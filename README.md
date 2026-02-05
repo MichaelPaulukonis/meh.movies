@@ -10,6 +10,22 @@ A Gen-Z-ified movie discovery app powered by Nuxt 3, SQLite, and Anthropic's Cla
 - **Dark Mode**: Because light mode is a crime.
 - **SSR & TypeScript**: Built with production standards in mind.
 
+## 📸 Screenshots
+
+<details>
+<summary>View Application UI (Main, Search, Details)</summary>
+
+### Main Page
+![Main Page](./docs/screenshots/meh.movies.main.png)
+
+### Search (Dark Mode)
+![Search Page](./docs/screenshots/meh.movies.search.dark.png)
+
+### Movie Details
+![Movie Details](./docs/screenshots/meh.movies.movie.png)
+
+</details>
+
 ## 🛠️ Setup
 
 1. **Install Dependencies**:
@@ -78,6 +94,9 @@ We implement several layers of defense:
 - **Sanitization**: User inputs are stripped of control characters and length-limited.
 - **Defensive Framing**: The LLM is instructed to stay within the "meh.movies" context and ignore instruction-change attempts.
 - **JSON Guardrails**: We enforce JSON output to ensure the API response is always parseable.
+
+> [!IMPORTANT]
+> A security audit (located in `docs/reference/`) has identified several risks including advanced prompt injection and "Denial of Wallet" via rate-limit exhaustion. As this is a POC/Demo for internal review, these concerns are acknowledged but remain intentionally unaddressed. **This application is not production-ready.**
 
 ## 📂 Project Structure
 
