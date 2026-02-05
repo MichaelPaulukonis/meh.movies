@@ -45,16 +45,16 @@ const useSuggestion = (s: string) => {
 
 <template>
   <div class="max-w-3xl mx-auto py-12">
-    <div class="text-center mb-20 relative">
-      <h1 class="text-7xl md:text-9xl font-[1000] mb-6 tracking-tighter italic drop-shadow-[0_0_40px_rgba(255,255,255,0.4)] leading-none text-white overflow-visible">
-        vibe <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-white to-yellow-300 px-4">discovery</span>
+    <div class="text-center mb-20 relative text-[var(--color-text-main)]">
+      <h1 class="text-7xl md:text-9xl font-[1000] mb-6 tracking-tighter italic leading-none overflow-visible" :style="{ filter: 'drop-shadow(' + 'var(--shadow-discovery)' + ')' }">
+        vibe <span class="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-accent)] via-[var(--color-discovery-via)] to-[var(--color-accent)] px-4">discovery</span>
       </h1>
       <div class="flex items-center justify-center gap-4">
-        <div class="h-[1px] w-12 bg-white/30"></div>
-        <p class="text-white/80 font-black uppercase tracking-[0.4em] text-[9px] whitespace-nowrap">
+        <div class="h-[1px] w-12 bg-[var(--color-text-main)] opacity-30"></div>
+        <p class="text-[var(--color-text-muted)] font-black uppercase tracking-[0.4em] text-[9px] whitespace-nowrap">
           input ur text below for matching
         </p>
-        <div class="h-[1px] w-12 bg-white/30"></div>
+        <div class="h-[1px] w-12 bg-[var(--color-text-main)] opacity-30"></div>
       </div>
     </div>
     
@@ -71,7 +71,7 @@ const useSuggestion = (s: string) => {
         :disabled="loading"
         class="absolute right-4 top-4 bottom-4 bg-white text-black px-8 rounded-2xl font-[1000] uppercase tracking-widest text-sm hover:scale-[1.05] active:scale-95 transition-all disabled:opacity-50 disabled:hover:scale-100 shadow-2xl"
       >
-        <span v-if="loading" class="animate-spin inline-block mr-2">🌀</span>
+        <span v-if="loading" class="animate-spin inline-block mr-2 text-black">🌀</span>
         {{ loading ? 'WAIT' : 'Search' }}
       </button>
     </div>
@@ -110,7 +110,7 @@ const useSuggestion = (s: string) => {
         </div>
         <div class="relative z-10 flex-1">
           <div class="flex flex-wrap gap-2 mb-4">
-            <span class="text-[9px] font-black uppercase tracking-widest bg-yellow-400 text-black px-2 py-1 rounded-sm shadow-lg">
+            <span class="text-[9px] font-black uppercase tracking-widest bg-[var(--color-accent)] text-black px-2 py-1 rounded-sm shadow-lg">
               {{ movie.releaseDate?.split('-')[0] }}
             </span>
             <span class="text-[9px] font-black uppercase tracking-widest border border-white/30 group-hover:border-black/30 px-2 py-1 rounded-sm text-white group-hover:text-black transition-colors">
@@ -123,7 +123,7 @@ const useSuggestion = (s: string) => {
         
         <!-- Hover indicator -->
         <div class="hidden md:flex items-center justify-center w-16 h-12 rounded-2xl bg-white/10 group-hover:bg-black/10 transition-colors">
-          <span class="text-2xl group-hover:translate-x-2 transition-transform">→</span>
+          <span class="text-2xl group-hover:translate-x-2 transition-transform text-white group-hover:text-black">→</span>
         </div>
       </NuxtLink>
     </transition-group>

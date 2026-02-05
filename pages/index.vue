@@ -36,10 +36,10 @@ const findMovieByMood = async (mood: string) => {
 <template>
   <div>
     <section class="mb-16">
-      <h1 class="text-5xl md:text-7xl font-[1000] mb-6 tracking-tighter leading-[0.9]">
-        what's the <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-white to-yellow-300 drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]">vibe</span> today?
+      <h1 class="text-5xl md:text-7xl font-[1000] mb-6 tracking-tighter leading-[0.9] text-[var(--color-text-main)]">
+        what's the <span class="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-accent)] via-[var(--color-discovery-via)] to-[var(--color-accent)] px-2" :style="{ filter: 'drop-shadow(' + 'var(--shadow-discovery)' + ')' }">vibe</span> today?
       </h1>
-      <p class="text-white/80 mb-10 max-w-xl text-lg font-medium italic">
+      <p class="text-[var(--color-text-muted)] mb-10 max-w-xl text-lg font-medium italic">
         👉 pick a mood and let claude 3.5 pick your next movie so you don't have to think. thinking is mid.
       </p>
       
@@ -57,7 +57,7 @@ const findMovieByMood = async (mood: string) => {
           <span class="text-sm font-[1000] uppercase tracking-[0.1em]">{{ m.label }}</span>
           
           <!-- Selected indicator glow -->
-          <div v-if="selectedMood === m.label" class="absolute inset-0 bg-gradient-to-tr from-yellow-400/30 to-transparent pointer-events-none"></div>
+          <div v-if="selectedMood === m.label" class="absolute inset-0 bg-[var(--color-accent)] opacity-20 pointer-events-none"></div>
         </button>
       </div>
     </section>
@@ -76,9 +76,9 @@ const findMovieByMood = async (mood: string) => {
         <div v-else-if="recommendations.length > 0">
           <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <h2 class="text-4xl md:text-5xl font-[1000] tracking-tighter leading-none italic text-white">
-              curated <span class="text-yellow-400">serves</span>
+              curated <span class="text-[var(--color-accent)]">serves</span>
             </h2>
-            <div class="px-4 py-2 bg-white text-black text-[10px] font-black uppercase tracking-widest rounded-lg transform -rotate-2">
+            <div class="px-4 py-2 bg-white text-black text-[10px] font-black uppercase tracking-widest rounded-lg transform -rotate-2 shadow-[0_0_20px_var(--color-accent-glow)]">
               {{ selectedMood }} vibe detected
             </div>
           </div>
@@ -120,35 +120,35 @@ const findMovieByMood = async (mood: string) => {
           :to="`/movie/${movie.movieId}`"
           class="group block relative"
         >
-          <div class="aspect-[2/3] bg-white/10 rounded-[50px] mb-8 overflow-hidden relative border-2 border-white/20 group-hover:border-white/60 transition-all duration-500 shadow-2xl group-hover:shadow-[0_40px_80px_rgba(0,0,0,0.6)] group-hover:-translate-y-4">
+          <div class="aspect-[2/3] bg-[var(--color-surface-glass)] rounded-[50px] mb-8 overflow-hidden relative border-2 border-[var(--color-border-subtle)] group-hover:border-[var(--color-accent)] transition-all duration-500 shadow-2xl group-hover:shadow-[0_40px_80px_rgba(0,0,0,0.6)] group-hover:-translate-y-4">
             
             <!-- Dynamic Color Overlay -->
-            <div class="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 opacity-0 group-hover:opacity-40 transition-opacity duration-500 z-20"></div>
+            <div class="absolute inset-0 bg-gradient-to-br from-[var(--color-accent)] to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-500 z-20"></div>
 
             <!-- Poster Overlay -->
             <div class="absolute inset-0 p-10 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-all duration-500 bg-gradient-to-t from-black via-black/60 to-transparent z-30">
               <div class="flex flex-wrap gap-2 mb-6">
-                <span v-for="tag in movie.vibe_tags?.slice(0, 2)" :key="tag" class="text-[10px] font-[1000] uppercase tracking-widest bg-yellow-400 text-black px-3 py-1.5 rounded-lg shadow-xl">#{{ tag }}</span>
+                <span v-for="tag in movie.vibe_tags?.slice(0, 2)" :key="tag" class="text-[10px] font-[1000] uppercase tracking-widest bg-[var(--color-accent)] text-[var(--color-text-dark)] px-3 py-1.5 rounded-lg shadow-xl">#{{ tag }}</span>
               </div>
               <p class="text-sm font-black leading-tight text-white line-clamp-4 italic drop-shadow-lg">{{ movie.overview }}</p>
             </div>
 
             <!-- Poster Placeholder -->
-            <div class="h-full w-full flex items-center justify-center text-white/10 font-[1000] text-[12rem] absolute inset-0 z-10 transition-all duration-1000 group-hover:scale-150 group-hover:rotate-12 group-hover:text-white/20">
+            <div class="h-full w-full flex items-center justify-center text-[var(--color-text-main)] opacity-10 font-[1000] text-[12rem] absolute inset-0 z-10 transition-all duration-1000 group-hover:scale-150 group-hover:rotate-12 group-hover:opacity-20">
               {{ movie.title[0] }}
             </div>
             
             <!-- Glassy Shine -->
-            <div class="absolute inset-0 bg-gradient-to-tr from-white/20 via-transparent to-transparent pointer-events-none z-10"></div>
+            <div class="absolute inset-0 bg-gradient-to-tr from-[var(--color-text-main)] opacity-10 via-transparent to-transparent pointer-events-none z-10"></div>
           </div>
 
-          <div class="px-4 text-white">
-            <h3 class="font-[1000] text-4xl md:text-5xl leading-[0.8] mb-4 tracking-tighter italic group-hover:text-yellow-400 transition-colors duration-300">{{ movie.title }}</h3>
+          <div class="px-4">
+            <h3 class="font-[1000] text-4xl md:text-5xl leading-[0.8] mb-4 tracking-tighter italic text-[var(--color-text-main)] group-hover:text-[var(--color-accent)] transition-colors duration-300">{{ movie.title }}</h3>
             <div class="flex items-center gap-4">
-              <span class="text-[10px] font-black uppercase tracking-[0.3em] text-white/80 px-3 py-1 bg-white/10 border border-white/20 rounded-full">
+              <span class="text-[10px] font-black uppercase tracking-[0.3em] text-[var(--color-text-main)] px-3 py-1 bg-[var(--color-surface-pill)] border border-[var(--color-border-subtle)] rounded-full">
                 {{ movie.releaseDate?.split('-')[0] }}
               </span>
-              <span class="text-[10px] font-black uppercase tracking-[0.3em] text-white/60">
+              <span class="text-[10px] font-black uppercase tracking-[0.3em] text-[var(--color-text-muted)]">
                 {{ movie.runtime }}m
               </span>
             </div>
