@@ -16,12 +16,15 @@ A Gen-Z-ified movie discovery app powered by Nuxt 3, SQLite, and Anthropic's Cla
 <summary>View Application UI (Main, Search, Details)</summary>
 
 ### Main Page
+
 ![Main Page](./docs/screenshots/meh.movies.main.png)
 
 ### Search (Dark Mode)
+
 ![Search Page](./docs/screenshots/meh.movies.search.dark.png)
 
 ### Movie Details
+
 ![Movie Details](./docs/screenshots/meh.movies.movie.png)
 
 </details>
@@ -67,6 +70,7 @@ A Gen-Z-ified movie discovery app powered by Nuxt 3, SQLite, and Anthropic's Cla
 
 We use an "Offline Enrichment" pattern. Background scripts (`src/enrich-db.ts`) process movies in batches.
 This keeps the runtime app fast and avoids unnecessary LLM latency for static movie data.
+In production we would hydrate all the data ahead of time, or do some lazy-loading on-request. The pattern here is mainly to avoid token costs.
 
 **Attributes extracted:**
 
