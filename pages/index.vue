@@ -40,7 +40,7 @@ const findMovieByMood = async (mood: string) => {
         what's the <span class="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-accent)] via-[var(--color-discovery-via)] to-[var(--color-accent)] px-2" :style="{ filter: 'drop-shadow(' + 'var(--shadow-discovery)' + ')' }">vibe</span> today?
       </h1>
       <p class="text-[var(--color-text-muted)] mb-10 max-w-xl text-lg font-medium italic">
-        👉 pick a mood and let claude 3.5 pick your next movie so you don't have to think. thinking is mid.
+        👉 pick a mood and let the AI choose your next movie so you don't have to think. thinking is mid.
       </p>
       
       <div class="flex flex-wrap gap-4">
@@ -84,16 +84,11 @@ const findMovieByMood = async (mood: string) => {
           </div>
           
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <NuxtLink v-for="movie in recommendations" :key="movie.movieId" :to="`/movie/${movie.movieId}`" 
-              class="bg-white/10 p-8 rounded-[32px] border border-white/20 hover:border-white/60 hover:bg-white hover:text-black transition-all group relative">
-              <div class="relative z-10">
-                <h3 class="font-[1000] text-3xl mb-3 tracking-tighter group-hover:scale-[1.02] transition-transform">{{ movie.title }}</h3>
-                <p class="text-white/80 group-hover:text-black/90 text-base mb-8 leading-tight font-medium italic">"{{ movie.reasoning }}"</p>
-                <div class="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest opacity-60 group-hover:opacity-100 transition-opacity">
-                  View Deets <span>→</span>
-                </div>
-              </div>
-            </NuxtLink>
+            <RecommendationCard 
+              v-for="movie in recommendations" 
+              :key="movie.movieId" 
+              :movie="movie" 
+            />
           </div>
         </div>
         
@@ -114,46 +109,11 @@ const findMovieByMood = async (mood: string) => {
       </div>
       
       <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-16">
-        <NuxtLink 
+        <MovieCard 
           v-for="movie in movies" 
           :key="movie.movieId" 
-          :to="`/movie/${movie.movieId}`"
-          class="group block relative"
-        >
-          <div class="aspect-[2/3] bg-[var(--color-surface-glass)] rounded-[50px] mb-8 overflow-hidden relative border-2 border-[var(--color-border-subtle)] group-hover:border-[var(--color-accent)] transition-all duration-500 shadow-2xl group-hover:shadow-[0_40px_80px_rgba(0,0,0,0.6)] group-hover:-translate-y-4">
-            
-            <!-- Dynamic Color Overlay -->
-            <div class="absolute inset-0 bg-gradient-to-br from-[var(--color-accent)] to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-500 z-20"></div>
-
-            <!-- Poster Overlay -->
-            <div class="absolute inset-0 p-10 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-all duration-500 bg-gradient-to-t from-black via-black/60 to-transparent z-30">
-              <div class="flex flex-wrap gap-2 mb-6">
-                <span v-for="tag in movie.vibe_tags?.slice(0, 2)" :key="tag" class="text-[10px] font-[1000] uppercase tracking-widest bg-[var(--color-accent)] text-[var(--color-text-dark)] px-3 py-1.5 rounded-lg shadow-xl">#{{ tag }}</span>
-              </div>
-              <p class="text-sm font-black leading-tight text-white line-clamp-4 italic drop-shadow-lg">{{ movie.overview }}</p>
-            </div>
-
-            <!-- Poster Placeholder -->
-            <div class="h-full w-full flex items-center justify-center text-[var(--color-text-main)] opacity-10 font-[1000] text-[12rem] absolute inset-0 z-10 transition-all duration-1000 group-hover:scale-150 group-hover:rotate-12 group-hover:opacity-20">
-              {{ movie.title[0] }}
-            </div>
-            
-            <!-- Glassy Shine -->
-            <div class="absolute inset-0 bg-gradient-to-tr from-[var(--color-text-main)] opacity-10 via-transparent to-transparent pointer-events-none z-10"></div>
-          </div>
-
-          <div class="px-4">
-            <h3 class="font-[1000] text-4xl md:text-5xl leading-[0.8] mb-4 tracking-tighter italic text-[var(--color-text-main)] group-hover:text-[var(--color-accent)] transition-colors duration-300">{{ movie.title }}</h3>
-            <div class="flex items-center gap-4">
-              <span class="text-[10px] font-black uppercase tracking-[0.3em] text-[var(--color-text-main)] px-3 py-1 bg-[var(--color-surface-pill)] border border-[var(--color-border-subtle)] rounded-full">
-                {{ movie.releaseDate?.split('-')[0] }}
-              </span>
-              <span class="text-[10px] font-black uppercase tracking-[0.3em] text-[var(--color-text-muted)]">
-                {{ movie.runtime }}m
-              </span>
-            </div>
-          </div>
-        </NuxtLink>
+          :movie="movie" 
+        />
       </div>
     </section>
   </div>
