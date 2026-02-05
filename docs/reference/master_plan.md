@@ -15,7 +15,6 @@ The movies table has the following columns:
 * budget: Production budget in USD.
 * revenue: Box office revenue in USD.
 * runtime: Movie runtime in minutes.
-* language: Primary language of the movie.
 * genres: Pipe-separated list of genres (e.g., "Action|Drama").
 * status: Release status (e.g., "Released").
 

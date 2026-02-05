@@ -54,7 +54,6 @@ Assume a SQLite database with this table already exists:
 * budget
 * revenue
 * runtime
-* language
 * genres
 * status
 
