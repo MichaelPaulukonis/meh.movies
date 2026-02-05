@@ -32,8 +32,13 @@ export default defineEventHandler(async (event) => {
   // Hydrate recommendations with full movie data
   const hydrated = await Promise.all(recommendations.map(async (rec: any) => {
     const movie = await db.get('SELECT * FROM movies WHERE movieId = ?', [rec.movieId]);
+    const genres = movie.genres ? JSON.parse(movie.genres) : [];
+    const genreString = Array.isArray(genres) ? genres.map((g: any) => g.name).join(', ') : '';
+
     return {
       ...movie,
+      releaseDate: movie.releaseDate,
+      genres: genreString,
       reasoning: rec.reasoning
     };
   }));

@@ -107,7 +107,7 @@ const findMovieByMood = async (mood: string) => {
             </div>
           </div>
           <h3 class="font-black text-xl group-hover:underline decoration-4">{{ movie.title }}</h3>
-          <p class="text-sm text-zinc-500">{{ movie.releasedate?.split('-')[0] }} • {{ movie.runtime }}m</p>
+          <p class="text-sm text-zinc-500">{{ movie.releaseDate?.split('-')[0] }} • {{ movie.runtime }}m</p>
         </NuxtLink>
       </div>
     </section>

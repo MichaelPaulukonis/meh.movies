@@ -23,7 +23,7 @@ if (error.value) {
       <div class="md:col-span-2">
         <div class="flex flex-wrap gap-2 mb-4">
           <span v-for="genre in movie.genres?.split(',')" :key="genre" class="text-[10px] font-black uppercase tracking-widest bg-zinc-100 dark:bg-zinc-900 px-3 py-1 rounded-full">
-            {{ genre }}
+            {{ genre.trim() }}
           </span>
         </div>
         <h1 class="text-5xl font-black mb-4 tracking-tight leading-none">{{ movie.title }}</h1>
@@ -32,7 +32,7 @@ if (error.value) {
         <div class="grid grid-cols-2 gap-8 py-8 border-y border-zinc-100 dark:border-zinc-800">
           <div>
             <span class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest block mb-1">Release</span>
-            <span class="font-bold">{{ movie.releasedate }}</span>
+            <span class="font-bold">{{ movie.releaseDate }}</span>
           </div>
           <div>
             <span class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest block mb-1">Runtime</span>

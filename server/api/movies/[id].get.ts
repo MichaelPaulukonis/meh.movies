@@ -16,9 +16,14 @@ export default defineEventHandler(async (event) => {
     });
   }
 
+  const genres = movie.genres ? JSON.parse(movie.genres) : [];
+  const genreString = Array.isArray(genres) ? genres.map((g: any) => g.name).join(', ') : '';
+
   // Parse JSON fields
   return {
     ...movie,
+    releaseDate: movie.releaseDate,
+    genres: genreString,
     thematic_keywords: movie.thematic_keywords ? JSON.parse(movie.thematic_keywords) : [],
     genz_tags: movie.genz_tags ? JSON.parse(movie.genz_tags) : [],
     vibe_tags: movie.vibe_tags ? JSON.parse(movie.vibe_tags) : [],

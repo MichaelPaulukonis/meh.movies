@@ -100,7 +100,7 @@ const useSuggestion = (s: string) => {
           <h2 class="text-2xl font-black group-hover:underline decoration-4 underline-offset-4 mb-2">{{ movie.title }}</h2>
           <p class="text-sm text-zinc-500 italic mb-1">"{{ movie.reasoning }}"</p>
           <div class="text-[10px] font-black uppercase tracking-widest text-zinc-400">
-            {{ movie.releasedate?.split('-')[0] }} • {{ movie.genres }}
+            {{ movie.releaseDate?.split('-')[0] }} • {{ movie.genres }}
           </div>
         </div>
       </NuxtLink>

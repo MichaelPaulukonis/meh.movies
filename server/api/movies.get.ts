@@ -12,12 +12,19 @@ export default defineEventHandler(async (event) => {
   `, [limit]);
 
   // Parse JSON strings back to arrays/objects
-  return movies.map(movie => ({
-    ...movie,
-    thematic_keywords: movie.thematic_keywords ? JSON.parse(movie.thematic_keywords) : [],
-    genz_tags: movie.genz_tags ? JSON.parse(movie.genz_tags) : [],
-    vibe_tags: movie.vibe_tags ? JSON.parse(movie.vibe_tags) : [],
-    watch_with_who: movie.watch_with_who || null,
-    recommendation_chains: movie.recommendation_chains ? JSON.parse(movie.recommendation_chains) : []
-  }));
+  return movies.map(movie => {
+    const genres = movie.genres ? JSON.parse(movie.genres) : [];
+    const genreString = Array.isArray(genres) ? genres.map((g: any) => g.name).join(', ') : '';
+
+    return {
+      ...movie,
+      releaseDate: movie.releaseDate, // Ensure we use the correct DB casing
+      genres: genreString,
+      thematic_keywords: movie.thematic_keywords ? JSON.parse(movie.thematic_keywords) : [],
+      genz_tags: movie.genz_tags ? JSON.parse(movie.genz_tags) : [],
+      vibe_tags: movie.vibe_tags ? JSON.parse(movie.vibe_tags) : [],
+      watch_with_who: movie.watch_with_who || null,
+      recommendation_chains: movie.recommendation_chains ? JSON.parse(movie.recommendation_chains) : []
+    };
+  });
 });
