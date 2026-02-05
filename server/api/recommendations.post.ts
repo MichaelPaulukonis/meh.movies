@@ -14,9 +14,9 @@ export default defineEventHandler(async (event) => {
   // Get a sample of enriched movies to match against
   // In a larger app, we'd use vector search or better filtering
   const enrichedMovies = await db.all(`
-    SELECT m.movieid, m.title, m.overview, e.thematic_keywords, e.genz_tags, e.vibe_tags
+    SELECT m.movieId, m.title, m.overview, e.thematic_keywords, e.genz_tags, e.vibe_tags
     FROM movies m
-    JOIN movie_enrichment e ON m.movieid = e.movieid
+    JOIN movie_enrichment e ON m.movieId = e.movieid
     LIMIT 20
   `);
 
@@ -31,7 +31,7 @@ export default defineEventHandler(async (event) => {
 
   // Hydrate recommendations with full movie data
   const hydrated = await Promise.all(recommendations.map(async (rec: any) => {
-    const movie = await db.get('SELECT * FROM movies WHERE movieid = ?', [rec.movieid]);
+    const movie = await db.get('SELECT * FROM movies WHERE movieId = ?', [rec.movieId]);
     return {
       ...movie,
       reasoning: rec.reasoning

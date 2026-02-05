@@ -13,41 +13,47 @@ A Gen-Z-ified movie discovery app powered by Nuxt 3, SQLite, and Anthropic's Cla
 ## 🛠️ Setup
 
 1. **Install Dependencies**:
-   \`\`\`bash
+
+   ```bash
    pnpm install
-   \`\`\`
+   ```
 
 2. **Environment Variables**:
-   Create a \`.env\` file (based on \`.env.example\`):
-   \`\`\`env
+   Create a `.env` file (based on `.env.example`):
+
+   ```env
    ANTHROPIC_API_KEY=your_key_here
-   OPENAI_API_KEY=your_key_here
-   \`\`\`
+   ```
 
 3. **Database Setup**:
    The database schema is already applied if you've run the initialization. To manually add the enrichment table:
-   \`\`\`bash
+
+   ```bash
    sqlite3 db/movies.db < db/schema.sql
-   \`\`\`
+   ```
 
 4. **Run Enrichment (Optional/Demo)**:
    To enrich a few movies from the existing database:
-   \`\`\`bash
+
+   ```bash
    npm run enrich-v2
-   \`\`\`
+   ```
 
 5. **Start Development Server**:
-   \`\`\`bash
+
+   ```bash
    npm run dev
-   \`\`\`
-   The app will be available at **http://localhost:3010**.
+   ```
+
+   The app will be available at **<http://localhost:3010>**.
 
 ## 🧠 How Enrichment Works
 
-We use an "Offline Enrichment" pattern. Background scripts (\`src/enrich-db.ts\`) process movies in batches. 
+We use an "Offline Enrichment" pattern. Background scripts (`src/enrich-db.ts`) process movies in batches.
 This keeps the runtime app fast and avoids unnecessary LLM latency for static movie data.
 
 **Attributes extracted:**
+
 1. **Thematic Keywords**: Deeper than just genres.
 2. **Vibe Tags**: The emotional "flavor" of the movie.
 3. **Gen-Z Tags**: Playful descriptors (e.g., "rent free", "slay").
@@ -58,6 +64,7 @@ This keeps the runtime app fast and avoids unnecessary LLM latency for static mo
 ## 🤖 Runtime LLM Usage
 
 When a user selects a mood or types a query, the app:
+
 1. Sanitizes the input to prevent prompt injection.
 2. Fetches a subset of **enriched movie data**.
 3. Sends a **System Prompt** + **User Mood** to Claude 3.5.
@@ -66,6 +73,7 @@ When a user selects a mood or types a query, the app:
 ## 🛡️ Security & Prompt Safety
 
 We implement several layers of defense:
+
 - **System/User Separation**: Instructions are strictly kept in the System role.
 - **Sanitization**: User inputs are stripped of control characters and length-limited.
 - **Defensive Framing**: The LLM is instructed to stay within the "meh.movies" context and ignore instruction-change attempts.
@@ -73,8 +81,8 @@ We implement several layers of defense:
 
 ## 📂 Project Structure
 
-- \`server/api/\`: Nuxt server routes for data and LLM calls.
-- \`server/utils/\`: Shared utilities for DB and LLM logic.
-- \`pages/\`: Frontend views (Home, Search, Movie Detail).
-- \`src/\`: Offline enrichment and legacy scripts.
-- \`db/\`: SQLite database files and schemas.
+- `server/api/`: Nuxt server routes for data and LLM calls.
+- `server/utils/`: Shared utilities for DB and LLM logic.
+- `pages/`: Frontend views (Home, Search, Movie Detail).
+- `src/`: Offline enrichment and legacy scripts.
+- `db/`: SQLite database files and schemas.

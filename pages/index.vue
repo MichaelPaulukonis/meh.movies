@@ -67,10 +67,10 @@ const findMovieByMood = async (mood: string) => {
         </h2>
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div v-for="movie in recommendations" :key="movie.movieid" class="bg-white dark:bg-zinc-950 p-4 rounded-2xl shadow-sm">
+          <div v-for="movie in recommendations" :key="movie.movieId" class="bg-white dark:bg-zinc-950 p-4 rounded-2xl shadow-sm">
             <h3 class="font-bold text-lg mb-1">{{ movie.title }}</h3>
             <p class="text-sm text-zinc-500 mb-4 italic">"{{ movie.reasoning }}"</p>
-            <NuxtLink :to="`/movie/${movie.movieid}`" class="text-xs font-black uppercase tracking-widest hover:underline">View Deets →</NuxtLink>
+            <NuxtLink :to="`/movie/${movie.movieId}`" class="text-xs font-black uppercase tracking-widest hover:underline">View Deets →</NuxtLink>
           </div>
         </div>
       </div>
@@ -90,8 +90,8 @@ const findMovieByMood = async (mood: string) => {
       <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <NuxtLink 
           v-for="movie in movies" 
-          :key="movie.movieid" 
-          :to="`/movie/${movie.movieid}`"
+          :key="movie.movieId" 
+          :to="`/movie/${movie.movieId}`"
           class="group block"
         >
           <div class="aspect-[2/3] bg-zinc-100 dark:bg-zinc-900 rounded-3xl mb-4 overflow-hidden relative">

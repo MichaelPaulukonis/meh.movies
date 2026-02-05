@@ -89,8 +89,8 @@ const useSuggestion = (s: string) => {
     <div v-if="results.length > 0" class="space-y-6">
       <NuxtLink 
         v-for="movie in results" 
-        :key="movie.movieid" 
-        :to="`/movie/${movie.movieid}`"
+        :key="movie.movieId" 
+        :to="`/movie/${movie.movieId}`"
         class="flex items-center gap-6 p-6 bg-white dark:bg-zinc-950 rounded-3xl border-2 border-zinc-100 dark:border-zinc-800 hover:border-zinc-900 dark:hover:border-zinc-100 transition-all group shadow-sm"
       >
         <div class="w-20 h-28 bg-zinc-100 dark:bg-zinc-900 rounded-2xl flex-shrink-0 flex items-center justify-center font-black text-2xl text-zinc-300 dark:text-zinc-700">

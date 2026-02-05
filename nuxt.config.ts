@@ -6,6 +6,7 @@ export default defineNuxtConfig({
   ssr: true,
   runtimeConfig: {
     anthropicApiKey: process.env.ANTHROPIC_API_KEY,
+    anthropicModel: process.env.ANTHROPIC_MODEL || 'claude-3-5-sonnet-20240620',
     public: {
       // Public variables if any
     }

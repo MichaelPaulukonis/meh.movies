@@ -52,22 +52,42 @@ export async function getMoodRecommendations(mood: string, enrichedMovies: any[]
     Help me find the perfect movie for this vibe.
   `;
 
+  const config = useRuntimeConfig();
   const response = await anthropic.messages.create({
-    model: 'claude-3-5-sonnet-20240620',
+    model: config.anthropicModel,
     max_tokens: 1024,
     system: systemPrompt,
     messages: [{ role: 'user', content: userMessage }],
+    tools: [
+      {
+        name: "provide_recommendations",
+        description: "Return a list of movie recommendations matching the user's vibe.",
+        input_schema: {
+          type: "object",
+          properties: {
+            recommendations: {
+              type: "array",
+              items: {
+                type: "object",
+                properties: {
+                  movieId: { type: "integer" },
+                  reasoning: { type: "string" }
+                },
+                required: ["movieId", "reasoning"]
+              }
+            }
+          },
+          required: ["recommendations"]
+        }
+      }
+    ],
+    tool_choice: { type: "tool", name: "provide_recommendations" }
   });
 
-  // Extract content
-  const content = response.content[0].type === 'text' ? response.content[0].text : '';
-  
-  try {
-    // Attempt to extract JSON from the response if Claude adds conversational text
-    const jsonMatch = content.match(/\[[\s\S]*\]/);
-    return jsonMatch ? JSON.parse(jsonMatch[0]) : [];
-  } catch (e) {
-    console.error('Failed to parse LLM response as JSON', e);
-    return [];
+  const toolUseBlock = response.content.find(block => block.type === 'tool_use');
+  if (toolUseBlock && toolUseBlock.type === 'tool_use') {
+    return (toolUseBlock.input as any).recommendations || [];
   }
+  
+  return [];
 }

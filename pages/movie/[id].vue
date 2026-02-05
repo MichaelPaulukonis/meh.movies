@@ -95,11 +95,13 @@ if (error.value) {
         </div>
 
         <div class="md:col-span-2">
-          <h3 class="font-black text-lg mb-4">recommendation chain 🔗</h3>
-          <div class="space-y-4">
-            <div v-for="(rec, index) in movie.recommendation_chain" :key="rec" class="flex items-center gap-4">
-              <div class="w-8 h-8 rounded-full bg-zinc-200 dark:bg-zinc-800 flex items-center justify-center font-black text-xs">{{ index + 1 }}</div>
-              <div class="flex-1 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors cursor-default">
+          <h3 class="font-black text-lg mb-6">recommendation chains 🔗</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div v-for="(chain, cIndex) in movie.recommendation_chains" :key="cIndex" class="space-y-3">
+              <h4 class="text-[10px] font-black uppercase tracking-widest text-zinc-400">
+                {{ cIndex === 0 ? 'Intensity' : cIndex === 1 ? 'Cross-Genre' : 'Wavelength' }}
+              </h4>
+              <div v-for="(rec, rIndex) in chain" :key="rec" class="p-3 rounded-xl border border-zinc-100 dark:border-zinc-800 text-xs font-bold bg-white dark:bg-zinc-950 shadow-sm hover:scale-[1.02] transition-transform">
                 {{ rec }}
               </div>
             </div>
