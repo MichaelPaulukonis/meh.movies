@@ -6,6 +6,7 @@
   "main": "index.js",
   "scripts": {
     "enrich-v2": "tsx src/enrich-db.ts",
+    "benchmark": "tsx src/benchmark-models.ts",
     "dev": "nuxt dev --port 3010",
     "build": "nuxt build",
     "start": "nuxt start",
@@ -20,6 +21,7 @@
     "@types/node": "^25.2.0",
     "dotenv": "^17.2.3",
     "lucide-vue-next": "^0.563.0",
+    "openai": "^6.18.0",
     "sqlite": "^5.1.1",
     "sqlite3": "^5.1.7",
     "ts-node": "^10.9.2",

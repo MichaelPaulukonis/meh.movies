@@ -1,23 +1,10 @@
-import Anthropic from '@anthropic-ai/sdk';
-
-export function useAnthropic() {
-  const config = useRuntimeConfig();
-  
-  if (!config.anthropicApiKey) {
-    console.warn('ANTHROPIC_API_KEY is missing');
-  }
-
-  return new Anthropic({
-    apiKey: config.anthropicApiKey,
-  });
-}
+import { getOpenRouterClient, getModelId } from './llm-provider';
 
 /**
  * Sanitizes user input to prevent basic prompt injection.
  */
 export function sanitizeInput(input: string): string {
   // Remove potentially harmful characters or sequences
-  // This is a basic implementation; in a real app, you'd want more robust logic
   return input.replace(/[<>]/g, '').slice(0, 500); 
 }
 
@@ -25,7 +12,8 @@ export function sanitizeInput(input: string): string {
  * Executes a mood-based recommendation query.
  */
 export async function getMoodRecommendations(mood: string, enrichedMovies: any[]) {
-  const anthropic = useAnthropic();
+  const client = getOpenRouterClient();
+  const model = getModelId('recommendation');
   
   const systemPrompt = `
     You are a helpful Gen-Z movie discovery assistant for "meh.movies".
@@ -52,41 +40,46 @@ export async function getMoodRecommendations(mood: string, enrichedMovies: any[]
     Help me find the perfect movie for this vibe.
   `;
 
-  const config = useRuntimeConfig();
-  const response = await anthropic.messages.create({
-    model: config.anthropicModel,
+  const response = await client.chat.completions.create({
+    model: model,
     max_tokens: 1024,
-    system: systemPrompt,
-    messages: [{ role: 'user', content: userMessage }],
+    messages: [
+      { role: 'system', content: systemPrompt },
+      { role: 'user', content: userMessage }
+    ],
     tools: [
       {
-        name: "provide_recommendations",
-        description: "Return a list of movie recommendations matching the user's vibe.",
-        input_schema: {
-          type: "object",
-          properties: {
-            recommendations: {
-              type: "array",
-              items: {
-                type: "object",
-                properties: {
-                  movieId: { type: "integer" },
-                  reasoning: { type: "string" }
+        type: "function",
+        function: {
+          name: "provide_recommendations",
+          description: "Return a list of movie recommendations matching the user's vibe.",
+          parameters: {
+            type: "object",
+            properties: {
+              recommendations: {
+                type: "array",
+                items: {
+                  type: "object",
+                  properties: {
+                    movieId: { type: "integer" },
+                    reasoning: { type: "string" }
+                  },
+                  required: ["movieId", "reasoning"]
+                    }
+                  }
                 },
-                required: ["movieId", "reasoning"]
-              }
-            }
-          },
-          required: ["recommendations"]
+            required: ["recommendations"]
+          }
         }
       }
     ],
-    tool_choice: { type: "tool", name: "provide_recommendations" }
+    tool_choice: { type: "function", function: { name: "provide_recommendations" } }
   });
 
-  const toolUseBlock = response.content.find(block => block.type === 'tool_use');
-  if (toolUseBlock && toolUseBlock.type === 'tool_use') {
-    return (toolUseBlock.input as any).recommendations || [];
+  const toolCall = response.choices[0].message.tool_calls?.[0];
+  if (toolCall) {
+    const result = JSON.parse(toolCall.function.arguments);
+    return result.recommendations || [];
   }
   
   return [];

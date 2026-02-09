@@ -1,13 +1,12 @@
 import { getMoviesDb } from './db';
-import Anthropic from '@anthropic-ai/sdk';
+import { getOpenRouterClient, getModelId } from '../server/utils/llm-provider';
 import { MOVIE_ENRICHMENT_PROMPT_TEMPLATE, SCHEMA, type MovieEnrichment } from '../server/utils/enrichment-templates';
 import dotenv from 'dotenv';
 
 dotenv.config();
 
-const client = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY || '',
-});
+const client = getOpenRouterClient();
+const model = getModelId('enrichment');
 
 async function enrichAllMovies() {
   const db = await getMoviesDb();
@@ -22,6 +21,7 @@ async function enrichAllMovies() {
   `);
 
   console.log(`Found ${movies.length} random unenriched movies. Let's goooo. 🚀`);
+  console.log(`Using model: ${model}`);
 
   let totalInputTokens = 0;
   let totalOutputTokens = 0;
@@ -36,8 +36,8 @@ async function enrichAllMovies() {
         .replace('{{genres}}', movie.genres || '')
         .replace('{{releasedate}}', movie.releaseDate || '');
 
-      const response = await client.messages.create({
-        model: process.env.ANTHROPIC_ENRICHMENT_MODEL || 'claude-3-haiku-20240307',
+      const response = await client.chat.completions.create({
+        model: model,
         max_tokens: 1024,
         messages: [{
           role: "user",
@@ -45,27 +45,30 @@ async function enrichAllMovies() {
         }],
         tools: [
           {
-            name: "record_movie_enrichment",
-            description: "Save the enriched movie metadata into the database.",
-            input_schema: SCHEMA
+            type: "function",
+            function: {
+              name: "record_movie_enrichment",
+              description: "Save the enriched movie metadata into the database.",
+              parameters: SCHEMA as any
+            }
           }
         ],
-        tool_choice: { type: "tool", name: "record_movie_enrichment" }
+        tool_choice: { type: "function", function: { name: "record_movie_enrichment" } }
       });
 
       // Track tokens
-      totalInputTokens += response.usage.input_tokens;
-      totalOutputTokens += response.usage.output_tokens;
+      totalInputTokens += response.usage?.prompt_tokens || 0;
+      totalOutputTokens += response.usage?.completion_tokens || 0;
 
-      const toolUseBlock = response.content.find(block => block.type === 'tool_use');
-      if (!toolUseBlock || toolUseBlock.type !== 'tool_use') {
-        throw new Error('Claude failed to use the enrichment tool. Major L.');
+      const toolCall = response.choices[0].message.tool_calls?.[0];
+      if (!toolCall) {
+        throw new Error('Model failed to use the enrichment tool. Major L.');
       }
 
-      const result = toolUseBlock.input;
+      const result = JSON.parse(toolCall.function.arguments);
 
       if (result) {
-        const enriched = result as unknown as MovieEnrichment;
+        const enriched = result as MovieEnrichment;
 
         await db.run(`
           INSERT INTO movie_enrichment (
@@ -82,7 +85,7 @@ async function enrichAllMovies() {
           JSON.stringify(enriched.recommendation_chains)
         ]);
 
-        console.log(`✅ Success. Call tokens: In: ${response.usage.input_tokens} | Out: ${response.usage.output_tokens}`);
+        console.log(`✅ Success. Call tokens: In: ${response.usage?.prompt_tokens} | Out: ${response.usage?.completion_tokens}`);
       }
     } catch (e) {
       console.error(`❌ Failed to enrich ${movie.title}:`, e);
@@ -95,9 +98,9 @@ async function enrichAllMovies() {
   console.log(`Total Input Tokens: ${totalInputTokens}`);
   console.log(`Total Output Tokens: ${totalOutputTokens}`);
   
-  // Quick cost estimate for Haiku ($0.25/$1.25 per 1M)
+  // Cost estimate for Haiku via OpenRouter (~$0.25/$1.25 per 1M)
   const estimatedCost = ((totalInputTokens / 1000000) * 0.25) + ((totalOutputTokens / 1000000) * 1.25);
-  console.log(`Estimated Cost (Haiku): ~$${estimatedCost.toFixed(4)}`);
+  console.log(`Estimated Cost: ~$${estimatedCost.toFixed(4)}`);
   console.log('--------------------------\n');
 }
 

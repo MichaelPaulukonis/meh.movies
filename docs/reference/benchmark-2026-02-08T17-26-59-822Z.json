@@ -1,0 +1,1363 @@
+[
+  {
+    "movieId": 883,
+    "title": "Coffee and Cigarettes",
+    "models": {
+      "anthropic/claude-3-haiku": {
+        "success": true,
+        "duration_ms": 2421,
+        "tokens": {
+          "prompt_tokens": 1280,
+          "completion_tokens": 262,
+          "total_tokens": 1542,
+          "cost": 0.000641025,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.0006475,
+            "upstream_inference_prompt_cost": 0.00032,
+            "upstream_inference_completions_cost": 0.0003275
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "data": {
+          "thematic_keywords": [
+            "existential ennui",
+            "human connection",
+            "mundane moments",
+            "absurdist humor",
+            "philosophical musings"
+          ],
+          "genz_tags": [
+            "no thoughts head empty",
+            "main character energy",
+            "it's giving unhinged"
+          ],
+          "vibe_tags": [
+            "melancholy",
+            "chaotic",
+            "liminal"
+          ],
+          "genre_blend_score": 85,
+          "watch_with_who": "the homies having an existential crisis",
+          "recommendation_chains": [
+            [
+              "Stranger Than Paradise",
+              "Ghost World",
+              "Dazed and Confused"
+            ],
+            [
+              "Paterson",
+              "Frances Ha",
+              "The Florida Project"
+            ],
+            [
+              "Anomalisa",
+              "Synecdoche, New York",
+              "The Tree of Life"
+            ]
+          ]
+        }
+      },
+      "google/gemini-2.0-flash-lite-001": {
+        "success": true,
+        "duration_ms": 2048,
+        "tokens": {
+          "prompt_tokens": 664,
+          "completion_tokens": 108,
+          "total_tokens": 772,
+          "cost": 0.000081378,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.0000822,
+            "upstream_inference_prompt_cost": 0.0000498,
+            "upstream_inference_completions_cost": 0.0000324
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "data": {
+          "vibe_tags": [
+            "wistful",
+            "quirky",
+            "cerebral",
+            "understated",
+            "candid"
+          ],
+          "thematic_keywords": [
+            "absurdity",
+            "existentialism",
+            "mundanity",
+            "connection",
+            "introspection",
+            "ephemeral"
+          ],
+          "genre_blend_score": 75,
+          "recommendation_chains": [
+            [
+              "Stranger Than Paradise",
+              "Broken Flowers",
+              "Lost in Translation"
+            ],
+            [
+              "Frances Ha",
+              "Reservoir Dogs",
+              "Pulp Fiction"
+            ],
+            [
+              "Night on Earth",
+              "Permanent Vacation",
+              "Down by Law"
+            ]
+          ],
+          "genz_tags": [
+            "it's giving indie",
+            "vibing",
+            "relatable af",
+            "cheugy but make it art",
+            "mood"
+          ],
+          "watch_with_who": "the chronically online, over a late-night coffee"
+        }
+      }
+    }
+  },
+  {
+    "movieId": 1672,
+    "title": "The Professional",
+    "models": {
+      "anthropic/claude-3-haiku": {
+        "success": true,
+        "duration_ms": 2273,
+        "tokens": {
+          "prompt_tokens": 1305,
+          "completion_tokens": 265,
+          "total_tokens": 1570,
+          "cost": 0.000650925,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.0006575,
+            "upstream_inference_prompt_cost": 0.00032625,
+            "upstream_inference_completions_cost": 0.00033125
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "data": {
+          "thematic_keywords": [
+            "retribution",
+            "power dynamics",
+            "moral ambiguity",
+            "existential crisis",
+            "lone wolf"
+          ],
+          "genz_tags": [
+            "no thoughts head empty",
+            "gaslight, gatekeep, girlboss",
+            "my little trolley problem"
+          ],
+          "vibe_tags": [
+            "chaotic",
+            "melancholy",
+            "neon-noir"
+          ],
+          "genre_blend_score": 80,
+          "watch_with_who": "your chaotic bestie at 3am",
+          "recommendation_chains": [
+            [
+              "The Raid",
+              "John Wick",
+              "Atomic Blonde"
+            ],
+            [
+              "Léon: The Professional",
+              "Snowpiercer",
+              "Blade Runner 2049"
+            ],
+            [
+              "Taxi Driver",
+              "Drive",
+              "Heat"
+            ]
+          ]
+        }
+      },
+      "google/gemini-2.0-flash-lite-001": {
+        "success": true,
+        "duration_ms": 1617,
+        "tokens": {
+          "prompt_tokens": 688,
+          "completion_tokens": 97,
+          "total_tokens": 785,
+          "cost": 0.000079893,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.0000807,
+            "upstream_inference_prompt_cost": 0.0000516,
+            "upstream_inference_completions_cost": 0.0000291
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "data": {
+          "recommendation_chains": [
+            [
+              "Taxi Driver",
+              "Heat",
+              "Oldboy"
+            ],
+            [
+              "Drive",
+              "Leon: The Professional",
+              "John Wick"
+            ],
+            [
+              "The Bourne Identity",
+              "Point Break",
+              "Inception"
+            ]
+          ],
+          "watch_with_who": "your edgy friend who loves a good cry",
+          "genre_blend_score": 65,
+          "thematic_keywords": [
+            "revenge",
+            "betrayal",
+            "redemption",
+            "isolation",
+            "moral ambiguity",
+            "survival"
+          ],
+          "vibe_tags": [
+            "noir",
+            "gritty",
+            "intense",
+            "stylish",
+            "melancholic"
+          ],
+          "genz_tags": [
+            "it's giving angst",
+            "unhinged",
+            "main character energy",
+            "no thoughts head empty",
+            "slay"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "movieId": 1956,
+    "title": "Gerry",
+    "models": {
+      "anthropic/claude-3-haiku": {
+        "success": true,
+        "duration_ms": 2148,
+        "tokens": {
+          "prompt_tokens": 1275,
+          "completion_tokens": 278,
+          "total_tokens": 1553,
+          "cost": 0.0006595875,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.00066625,
+            "upstream_inference_prompt_cost": 0.00031875,
+            "upstream_inference_completions_cost": 0.0003475
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "data": {
+          "thematic_keywords": [
+            "existential dread",
+            "futility of existence",
+            "isolation",
+            "disorientation",
+            "surreal experience"
+          ],
+          "genz_tags": [
+            "zero destination energy",
+            "main character woke up and chose violence",
+            "living in the sauce"
+          ],
+          "vibe_tags": [
+            "melancholy",
+            "surreal",
+            "unhinged",
+            "liminal"
+          ],
+          "genre_blend_score": 80,
+          "watch_with_who": "the homies when we're all having an existential crisis",
+          "recommendation_chains": [
+            [
+              "Stalker",
+              "Last Year at Marienbad",
+              "Picnic at Hanging Rock"
+            ],
+            [
+              "Deliverance",
+              "Walkabout",
+              "The Virgin Suicides"
+            ],
+            [
+              "Beyond the Black Rainbow",
+              "Under the Skin",
+              "The Holy Mountain"
+            ]
+          ]
+        }
+      },
+      "google/gemini-2.0-flash-lite-001": {
+        "success": true,
+        "duration_ms": 1950,
+        "tokens": {
+          "prompt_tokens": 661,
+          "completion_tokens": 102,
+          "total_tokens": 763,
+          "cost": 0.00007937325,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.000080175,
+            "upstream_inference_prompt_cost": 0.000049575,
+            "upstream_inference_completions_cost": 0.0000306
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "data": {
+          "thematic_keywords": [
+            "Existentialism",
+            "Isolation",
+            "Perseverance",
+            "Despair",
+            "Absurdity",
+            "Mortality"
+          ],
+          "recommendation_chains": [
+            [
+              "The Road",
+              "Melancholia",
+              "Irreversible"
+            ],
+            [
+              "Lost in Translation",
+              "Under the Skin",
+              "The Lighthouse"
+            ],
+            [
+              "2001: A Space Odyssey",
+              "Stalker",
+              "Primer"
+            ]
+          ],
+          "vibe_tags": [
+            "bleak",
+            "atmospheric",
+            "claustrophobic",
+            "meditative",
+            "surreal"
+          ],
+          "watch_with_who": "your pretentious friend",
+          "genre_blend_score": 75,
+          "genz_tags": [
+            "it's giving lost",
+            "unhinged",
+            "no thoughts head empty",
+            "main character energy"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "movieId": 8418,
+    "title": "Kolberg",
+    "models": {
+      "anthropic/claude-3-haiku": {
+        "success": true,
+        "duration_ms": 2146,
+        "tokens": {
+          "prompt_tokens": 1364,
+          "completion_tokens": 266,
+          "total_tokens": 1630,
+          "cost": 0.000666765,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.0006735,
+            "upstream_inference_prompt_cost": 0.000341,
+            "upstream_inference_completions_cost": 0.0003325
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "data": {
+          "thematic_keywords": [
+            "resistance",
+            "propaganda",
+            "nationalism",
+            "disillusionment",
+            "totalitarianism"
+          ],
+          "genz_tags": [
+            "zero thoughts just vibes",
+            "no serotonin only chaos",
+            "main character moment"
+          ],
+          "vibe_tags": [
+            "melancholy",
+            "ominous",
+            "unsettling"
+          ],
+          "genre_blend_score": 80,
+          "watch_with_who": "the war history nerd during a crisis of faith",
+          "recommendation_chains": [
+            [
+              "Come and See",
+              "The Battle of Algiers",
+              "Pan's Labyrinth"
+            ],
+            [
+              "Schindler's List",
+              "Grave of the Fireflies",
+              "Downfall"
+            ],
+            [
+              "The Lives of Others",
+              "The Act of Killing",
+              "Triumph of the Will"
+            ]
+          ]
+        }
+      },
+      "google/gemini-2.0-flash-lite-001": {
+        "success": true,
+        "duration_ms": 1845,
+        "tokens": {
+          "prompt_tokens": 741,
+          "completion_tokens": 115,
+          "total_tokens": 856,
+          "cost": 0.00008917425,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.000090075,
+            "upstream_inference_prompt_cost": 0.000055575,
+            "upstream_inference_completions_cost": 0.0000345
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "data": {
+          "genz_tags": [
+            "it's giving unhinged",
+            "main character energy",
+            "no thoughts head empty",
+            "respectfully",
+            "unbothered"
+          ],
+          "vibe_tags": [
+            "somber",
+            "epic",
+            "claustrophobic",
+            "desperate",
+            "historical"
+          ],
+          "recommendation_chains": [
+            [
+              "1917",
+              "Grave of the Fireflies",
+              "Saving Private Ryan"
+            ],
+            [
+              "The Grand Budapest Hotel",
+              "The Lives of Others",
+              "Amelie"
+            ],
+            [
+              "Downfall",
+              "Das Boot",
+              "The Bridge on the River Kwai"
+            ]
+          ],
+          "watch_with_who": "your history buff friend who loves a good cry",
+          "thematic_keywords": [
+            "resistance",
+            "propaganda",
+            "sacrifice",
+            "defiance",
+            "fear",
+            "nationalism"
+          ],
+          "genre_blend_score": 60
+        }
+      }
+    }
+  },
+  {
+    "movieId": 14283,
+    "title": "The Red Violin",
+    "models": {
+      "anthropic/claude-3-haiku": {
+        "success": true,
+        "duration_ms": 2571,
+        "tokens": {
+          "prompt_tokens": 1365,
+          "completion_tokens": 255,
+          "total_tokens": 1620,
+          "cost": 0.0006534,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.00066,
+            "upstream_inference_prompt_cost": 0.00034125,
+            "upstream_inference_completions_cost": 0.00031875
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "data": {
+          "thematic_keywords": [
+            "legacy",
+            "mortality",
+            "fate",
+            "artistic passion",
+            "human condition"
+          ],
+          "genz_tags": [
+            "it's giving cultural renaissance",
+            "main character energy",
+            "history is unhinged"
+          ],
+          "vibe_tags": [
+            "melancholy",
+            "philosophical",
+            "bittersweet"
+          ],
+          "genre_blend_score": 85,
+          "watch_with_who": "your high school art hoe ex at 3am",
+          "recommendation_chains": [
+            [
+              "Amadeus",
+              "The Pianist",
+              "Coco"
+            ],
+            [
+              "Pan's Labyrinth",
+              "Only Lovers Left Alive",
+              "Catch Me If You Can"
+            ],
+            [
+              "Like Father, Like Son",
+              "Grave of the Fireflies",
+              "The Fountain"
+            ]
+          ]
+        }
+      },
+      "google/gemini-2.0-flash-lite-001": {
+        "success": true,
+        "duration_ms": 1937,
+        "tokens": {
+          "prompt_tokens": 755,
+          "completion_tokens": 111,
+          "total_tokens": 866,
+          "cost": 0.00008902575,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.000089925,
+            "upstream_inference_prompt_cost": 0.000056625,
+            "upstream_inference_completions_cost": 0.0000333
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "data": {
+          "watch_with_who": "your most dramatic friend, with snacks",
+          "genre_blend_score": 75,
+          "thematic_keywords": [
+            "legacy",
+            "obsession",
+            "beauty and suffering",
+            "artistic journey",
+            "historical",
+            "passion"
+          ],
+          "vibe_tags": [
+            "melancholy",
+            "romantic",
+            "haunting",
+            "mysterious",
+            "epic"
+          ],
+          "recommendation_chains": [
+            [
+              "Amadeus",
+              "Schindler's List",
+              "Requiem for a Dream"
+            ],
+            [
+              "The Piano",
+              "Portrait of a Lady on Fire",
+              "Phantom Thread"
+            ],
+            [
+              "Cinema Paradiso",
+              "The Age of Innocence",
+              "Wings of Desire"
+            ]
+          ],
+          "genz_tags": [
+            "it's giving main character energy",
+            "no thoughts head empty",
+            "unhinged",
+            "aesthetic",
+            "IYKYK"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "movieId": 15749,
+    "title": "While She Was Out",
+    "models": {
+      "anthropic/claude-3-haiku": {
+        "success": true,
+        "duration_ms": 3478,
+        "tokens": {
+          "prompt_tokens": 1301,
+          "completion_tokens": 261,
+          "total_tokens": 1562,
+          "cost": 0.000644985,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.0006515,
+            "upstream_inference_prompt_cost": 0.00032525,
+            "upstream_inference_completions_cost": 0.00032625
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "data": {
+          "thematic_keywords": [
+            "survival",
+            "female empowerment",
+            "human nature",
+            "moral dilemma",
+            "isolation"
+          ],
+          "genz_tags": [
+            "no thoughts head empty",
+            "ate and left no crumbs",
+            "main character energy"
+          ],
+          "vibe_tags": [
+            "chaotic",
+            "melancholy",
+            "feral"
+          ],
+          "genre_blend_score": 80,
+          "watch_with_who": "your bestie during a mental breakdown",
+          "recommendation_chains": [
+            [
+              "The Descent",
+              "Hush",
+              "Don't Breathe"
+            ],
+            [
+              "The Girl with the Dragon Tattoo",
+              "Gone Girl",
+              "The Silence of the Lambs"
+            ],
+            [
+              "Joker",
+              "Black Swan",
+              "Requiem for a Dream"
+            ]
+          ]
+        }
+      },
+      "google/gemini-2.0-flash-lite-001": {
+        "success": true,
+        "duration_ms": 1539,
+        "tokens": {
+          "prompt_tokens": 682,
+          "completion_tokens": 96,
+          "total_tokens": 778,
+          "cost": 0.0000791505,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.00007995,
+            "upstream_inference_prompt_cost": 0.00005115,
+            "upstream_inference_completions_cost": 0.0000288
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "data": {
+          "thematic_keywords": [
+            "survival",
+            "isolation",
+            "redemption",
+            "self-reliance",
+            "fear",
+            "justice"
+          ],
+          "vibe_tags": [
+            "gritty",
+            "tense",
+            "isolated",
+            "raw",
+            "dark"
+          ],
+          "genre_blend_score": 75,
+          "recommendation_chains": [
+            [
+              "Frozen River",
+              "Winter's Bone",
+              "The Road"
+            ],
+            [
+              "Prisoners",
+              "Sicario",
+              "No Country for Old Men"
+            ],
+            [
+              "Hard Candy",
+              "I Spit on Your Grave",
+              "Revenge"
+            ]
+          ],
+          "watch_with_who": "your edgy friend who loves thrillers",
+          "genz_tags": [
+            "it's giving feral",
+            "no thoughts head empty",
+            "main character energy",
+            "sliving"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "movieId": 25530,
+    "title": "First on the Moon",
+    "models": {
+      "anthropic/claude-3-haiku": {
+        "success": true,
+        "duration_ms": 2660,
+        "tokens": {
+          "prompt_tokens": 1387,
+          "completion_tokens": 292,
+          "total_tokens": 1679,
+          "cost": 0.0007046325,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.00071175,
+            "upstream_inference_prompt_cost": 0.00034675,
+            "upstream_inference_completions_cost": 0.000365
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "data": {
+          "thematic_keywords": [
+            "existential dread",
+            "societal disillusionment",
+            "Cold War paranoia",
+            "uncovering hidden histories",
+            "futurism vs. nationalism"
+          ],
+          "genz_tags": [
+            "main character energy",
+            "trust issues",
+            "zero bitches given",
+            "we live in a simulation",
+            "unhinged but make it vintage"
+          ],
+          "vibe_tags": [
+            "somber",
+            "eerie",
+            "surreal",
+            "retro-futuristic",
+            "conspiracy-adjacent"
+          ],
+          "genre_blend_score": 75,
+          "watch_with_who": "your college roommate who's studying Soviet history",
+          "recommendation_chains": [
+            [
+              "The Dish",
+              "Ace in the Hole",
+              "Thirteen Days"
+            ],
+            [
+              "Brazil",
+              "Alphaville",
+              "Dark City"
+            ],
+            [
+              "Stalker",
+              "The Lives of Others",
+              "Goodbye Lenin!"
+            ]
+          ]
+        }
+      },
+      "google/gemini-2.0-flash-lite-001": {
+        "success": true,
+        "duration_ms": 1942,
+        "tokens": {
+          "prompt_tokens": 771,
+          "completion_tokens": 121,
+          "total_tokens": 892,
+          "cost": 0.00009318375,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.000094125,
+            "upstream_inference_prompt_cost": 0.000057825,
+            "upstream_inference_completions_cost": 0.0000363
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "data": {
+          "watch_with_who": "the friend who loves a good rabbit hole",
+          "recommendation_chains": [
+            [
+              "Apollo 13",
+              "Ad Astra",
+              "2001: A Space Odyssey"
+            ],
+            [
+              "Brazil",
+              "Dark City",
+              "Stalker"
+            ],
+            [
+              "The Right Stuff",
+              "October Sky",
+              "For All Mankind"
+            ]
+          ],
+          "thematic_keywords": [
+            "Lost History",
+            "Secret Missions",
+            "Cosmic Dreams",
+            "Soviet Ambition",
+            "Alternate Reality",
+            "Human Endurance"
+          ],
+          "vibe_tags": [
+            "enigmatic",
+            "retro-futurism",
+            "surreal",
+            "intriguing",
+            "thought-provoking"
+          ],
+          "genz_tags": [
+            "it's giving conspiracy",
+            "history is sus",
+            "lowkey mind-blowing",
+            "no cap, space",
+            "based on a true story (probably)"
+          ],
+          "genre_blend_score": 75
+        }
+      }
+    }
+  },
+  {
+    "movieId": 37534,
+    "title": "The New Daughter",
+    "models": {
+      "anthropic/claude-3-haiku": {
+        "success": true,
+        "duration_ms": 2155,
+        "tokens": {
+          "prompt_tokens": 1291,
+          "completion_tokens": 261,
+          "total_tokens": 1552,
+          "cost": 0.00064251,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.000649,
+            "upstream_inference_prompt_cost": 0.00032275,
+            "upstream_inference_completions_cost": 0.00032625
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "data": {
+          "thematic_keywords": [
+            "family dysfunction",
+            "identity crisis",
+            "isolation",
+            "puberty",
+            "the uncanny"
+          ],
+          "genz_tags": [
+            "main character energy",
+            "zero thoughts just vibes",
+            "lives in my head rent-free"
+          ],
+          "vibe_tags": [
+            "melancholy",
+            "unsettling",
+            "liminal"
+          ],
+          "genre_blend_score": 80,
+          "watch_with_who": "your closest friend to theorize wildly",
+          "recommendation_chains": [
+            [
+              "The Babadook",
+              "Hereditary",
+              "The Witch"
+            ],
+            [
+              "Let the Right One In",
+              "Under the Skin",
+              "The Invitation"
+            ],
+            [
+              "The VVitch",
+              "I'm Thinking of Ending Things",
+              "The Lighthouse"
+            ]
+          ]
+        }
+      },
+      "google/gemini-2.0-flash-lite-001": {
+        "success": true,
+        "duration_ms": 2135,
+        "tokens": {
+          "prompt_tokens": 675,
+          "completion_tokens": 106,
+          "total_tokens": 781,
+          "cost": 0.00008160075,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.000082425,
+            "upstream_inference_prompt_cost": 0.000050625,
+            "upstream_inference_completions_cost": 0.0000318
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "data": {
+          "watch_with_who": "the sleep-deprived, the easily spooked",
+          "genre_blend_score": 65,
+          "genz_tags": [
+            "it's giving unsettling",
+            "mother is mothering",
+            "unhinged af",
+            "send help",
+            "don't look now"
+          ],
+          "recommendation_chains": [
+            [
+              "The Others",
+              "The Babadook",
+              "Hereditary"
+            ],
+            [
+              "It Follows",
+              "The Witch",
+              "Relic"
+            ],
+            [
+              "The Sixth Sense",
+              "The Ring",
+              "Smile"
+            ]
+          ],
+          "vibe_tags": [
+            "dread",
+            "creepy",
+            "atmospheric",
+            "claustrophobic",
+            "eerie"
+          ],
+          "thematic_keywords": [
+            "isolation",
+            "transformation",
+            "decay",
+            "obsession",
+            "suburban gothic",
+            "family secrets"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "movieId": 38922,
+    "title": "Fatso",
+    "models": {
+      "anthropic/claude-3-haiku": {
+        "success": true,
+        "duration_ms": 2577,
+        "tokens": {
+          "prompt_tokens": 1367,
+          "completion_tokens": 277,
+          "total_tokens": 1644,
+          "cost": 0.00068112,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.000688,
+            "upstream_inference_prompt_cost": 0.00034175,
+            "upstream_inference_completions_cost": 0.00034625
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "data": {
+          "thematic_keywords": [
+            "self-acceptance",
+            "resilience",
+            "love conquers all",
+            "embracing one's true self",
+            "health and wellness"
+          ],
+          "genz_tags": [
+            "no thoughts head empty",
+            "main character energy",
+            "it's giving unhinged"
+          ],
+          "vibe_tags": [
+            "heartwarming",
+            "quirky",
+            "feel-good"
+          ],
+          "genre_blend_score": 70,
+          "watch_with_who": "your favorite comfort snack and your ride-or-die bestie",
+          "recommendation_chains": [
+            [
+              "My Big Fat Greek Wedding",
+              "Notting Hill",
+              "Bridget Jones's Diary"
+            ],
+            [
+              "Silver Linings Playbook",
+              "About a Boy",
+              "Crazy Rich Asians"
+            ],
+            [
+              "Patch Adams",
+              "The Princess Bride",
+              "Little Miss Sunshine"
+            ]
+          ]
+        }
+      },
+      "google/gemini-2.0-flash-lite-001": {
+        "success": true,
+        "duration_ms": 2036,
+        "tokens": {
+          "prompt_tokens": 743,
+          "completion_tokens": 103,
+          "total_tokens": 846,
+          "cost": 0.00008575875,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.000086625,
+            "upstream_inference_prompt_cost": 0.000055725,
+            "upstream_inference_completions_cost": 0.0000309
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "data": {
+          "watch_with_who": "your crush, under a blanket",
+          "genz_tags": [
+            "glow up",
+            "main character energy",
+            "it's giving wholesome",
+            "real ones only",
+            "no cap"
+          ],
+          "vibe_tags": [
+            "warm",
+            "sweet",
+            "hopeful",
+            "nostalgic",
+            "romantic"
+          ],
+          "genre_blend_score": 65,
+          "thematic_keywords": [
+            "self-acceptance",
+            "body image",
+            "transformation",
+            "romantic love",
+            "self-discovery",
+            "obsession"
+          ],
+          "recommendation_chains": [
+            [
+              "Moonstruck",
+              "About Time",
+              "Eternal Sunshine of the Spotless Mind"
+            ],
+            [
+              "Paddington 2",
+              "Amelie",
+              "Sing Street"
+            ],
+            [
+              "Fatso",
+              "Big",
+              "What's Eating Gilbert Grape"
+            ]
+          ]
+        }
+      }
+    }
+  },
+  {
+    "movieId": 65213,
+    "title": "Smart Girls Don't Talk",
+    "models": {
+      "anthropic/claude-3-haiku": {
+        "success": true,
+        "duration_ms": 2687,
+        "tokens": {
+          "prompt_tokens": 1236,
+          "completion_tokens": 250,
+          "total_tokens": 1486,
+          "cost": 0.000615285,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.0006215,
+            "upstream_inference_prompt_cost": 0.000309,
+            "upstream_inference_completions_cost": 0.0003125
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "data": {
+          "thematic_keywords": [
+            "power dynamics",
+            "moral ambiguity",
+            "betrayal",
+            "social status",
+            "consequences"
+          ],
+          "genz_tags": [
+            "red flags",
+            "gas lighting era",
+            "no thoughts head empty",
+            "main character energy"
+          ],
+          "vibe_tags": [
+            "neon-noir",
+            "melancholy",
+            "high-stakes"
+          ],
+          "genre_blend_score": 75,
+          "watch_with_who": "your partner who you're not sure you trust",
+          "recommendation_chains": [
+            [
+              "Double Indemnity",
+              "The Big Sleep",
+              "Touch of Evil"
+            ],
+            [
+              "Vertigo",
+              "Mulholland Drive",
+              "Memento"
+            ],
+            [
+              "Chinatown",
+              "Body Heat",
+              "The Long Goodbye"
+            ]
+          ]
+        }
+      },
+      "google/gemini-2.0-flash-lite-001": {
+        "success": true,
+        "duration_ms": 1832,
+        "tokens": {
+          "prompt_tokens": 625,
+          "completion_tokens": 96,
+          "total_tokens": 721,
+          "cost": 0.00007491825,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.000075675,
+            "upstream_inference_prompt_cost": 0.000046875,
+            "upstream_inference_completions_cost": 0.0000288
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "data": {
+          "genz_tags": [
+            "it's giving unhinged",
+            "main character energy",
+            "no thoughts head empty",
+            "delulu is the solulu"
+          ],
+          "recommendation_chains": [
+            [
+              "Casablanca",
+              "Vertigo",
+              "Double Indemnity"
+            ],
+            [
+              "Carol",
+              "In the Mood for Love",
+              "Drive"
+            ],
+            [
+              "Sunset Boulevard",
+              "All About Eve",
+              "Rebecca"
+            ]
+          ],
+          "vibe_tags": [
+            "melodramatic",
+            "romantic",
+            "noir",
+            "intense"
+          ],
+          "genre_blend_score": 25,
+          "watch_with_who": "your dramatic friends, for sure",
+          "thematic_keywords": [
+            "forbidden love",
+            "deception",
+            "moral compromise",
+            "fatal attraction",
+            "hidden agendas"
+          ]
+        }
+      }
+    }
+  }
+]

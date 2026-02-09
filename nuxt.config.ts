@@ -5,6 +5,9 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss'],
   ssr: true,
   runtimeConfig: {
+    openrouterApiKey: process.env.OPENROUTER_API_KEY,
+    llmModelEnrichment: process.env.LLM_MODEL_ENRICHMENT || 'anthropic/claude-3-haiku',
+    llmModelRecommendation: process.env.LLM_MODEL_RECOMMENDATION || 'anthropic/claude-3.5-sonnet',
     anthropicApiKey: process.env.ANTHROPIC_API_KEY,
     anthropicModel: process.env.ANTHROPIC_MODEL || 'claude-3-5-sonnet-20240620',
     public: {
