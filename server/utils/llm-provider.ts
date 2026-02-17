@@ -14,11 +14,11 @@ export function getOpenRouterClient() {
     apiKey = config.openrouterApiKey;
   } catch (e) {
     // Fallback to process.env for standalone scripts
-    apiKey = process.env.OPENROUTER_API_KEY || '';
+    apiKey = process.env.OPENROUTER_API_KEY_APP || '';
   }
 
   if (!apiKey) {
-    console.warn('OPENROUTER_API_KEY is missing. LLM calls will fail.');
+    console.warn('OPENROUTER_API_KEY_APP is missing. LLM calls will fail.');
   }
 
   return new OpenAI({
